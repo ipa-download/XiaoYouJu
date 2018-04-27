@@ -9,25 +9,109 @@
                     <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
                     <title>请在Safari中打开</title>
                     <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+                        
+                        <style type="text/css">
+                            /*微信*/
+                            html{
+                                height: 100%;
+                                width: 100%;
+                            }
+                        
+                        body {
+                            height: 100%;
+                            width: 100%;
+                            font-size: 2rem;
+                            color: #595757;
+                            /*background-image: url(wechat.png);*/
+                            -webkit-background-size: 100% 100%;
+                            background-size: 100% 100%;
+                            background-repeat: no-repeat;
+                        }
+                        
+                        /*非微信*/
+                        .title {
+                            font-size: 2rem;
+                            margin-right: 1%;
+                            margin-bottom: 0;
+                            margin: 4rem 0;
+                        }
+                        .middle {
+                            margin: 5rem auto 8rem auto;
+                        }
+                        .setup {
+                            font-size: 3rem;
+                            color: white;
+                            padding: 5px;
+                            border-radius: 8px;
+                            background: -webkit-linear-gradient(#595757, #6f6f6f);
+                            background: -o-linear-gradient(#595757, #6f6f6f);
+                            background: -moz-linear-gradient(#595757, #6f6f6f);
+                            background: linear-gradient(#595757, #6f6f6f);
+                        }
+                        
+                        .statement {
+                            color: white;
+                            padding: 5px;
+                            border-radius: 3px;
+                            background-color: #595757;
+                        }
+                        p {
+                            margin: 5px;
+                        }
+                        .glyphicon {
+                            top: 2px;
+                        }
+                        a{
+                            text-decoration:none;
+                        }
+                        </style>
     </head>
-    
-    <body>
-        <div class="container-fluid">
-            <div class="row">
-                
-                <div class="col-xs-12">
-                    
-                    <h1>请在Safari中打开</h1>
-                    
-                    <br/>
-                    <a href="itms-services://?action=download-manifest&url=https://raw.githubusercontent.com/ipa-download/XiaoYouJu/master/manifest.plist">
-                        <h3>点击下载</h3>
-                    </a>
+    <body onload="setPage()">
+        <div class="container-fluid" id="bodySet" style="display:none">
+            <div class="row" >
+                <div class="title text-right col-xs-12">
+                    版本：&nbsp;1.0（build）&nbsp;&nbsp;大小：10.6MB&nbsp;&nbsp;&nbsp;&nbsp;2018-04-07
                 </div>
             </div>
-            
+            <div class="row">
+                <div class="col-xs-12 middle text-center">
+                    <p class=" text-center" class="">小邮局</p>
+                    <div style="" class="col-xs-12">
+                        <!-- ipa图标 -->
+                        <img src="icon512.png" style="height:16rem;border-radius:15%">
+                            </div>
+                    <div class="col-xs-12" style="margin-top:1rem">
+                        <!-- plist -->
+                        <a href="itms-services://?action=download-manifest&amp;url=https://raw.githubusercontent.com/ipa-download/XiaoYouJu/master/manifest.plist">
+                            <p><strong class="setup"><span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+                                点击安装
+                            </strong>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 6rem;">
+                <div class="col-xs-12 ">
+                    <p class=" text-center">
+                    <strong class="statement">免责声明</strong>
+                    </p>
+                    <p class=" text-center" class="">本应用仅供内部人员使用，</p>
+                    <p class=" text-center" >请于完成下载后24小时内删除</p>
+                </div>
+            </div>
         </div>
+        <script type="text/javascript">
+            function setPage () {
+                var ua = navigator.userAgent.toLowerCase();
+                if(ua.match(/MicroMessenger/i)=="micromessenger") {
+                    document.body.style.backgroundImage='url(wechat.png)';
+                } else {
+                    document.getElementById('bodySet').removeAttribute("style");
+                }
+            }
         
+            </script>
     </body>
 </html>
 
